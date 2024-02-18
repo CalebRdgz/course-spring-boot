@@ -11,14 +11,12 @@ public class ColourPrinterImpl implements ColourPrinter {
   private RedPrinter redPrinter;
   private BluePrinter bluePrinter;
   private GreenPrinter greenPrinter;
-
-  public ColourPrinterImpl() {
-      //inside of this ColourPrinterImpl constructor, were creating new redprinter, blueprinter, greenprinter
-      // (english being the language its printing 'red' into the command line in)
-      //we DO NOT want to do it this way (creating a new red printer in the constructor):
-    this.redPrinter = new EnglishRedPrinter();
-    this.bluePrinter = new EnglishBluePrinter();
-    this.greenPrinter = new EnglishGreenPrinter();
+    //declare the beans inside of the constructor:
+    // because Spring is going to use this constructor as a way of identify which dependencies are needed and inject them
+  public ColourPrinterImpl(RedPrinter redPrinter, BluePrinter bluePrinter, GreenPrinter greenPrinter) {
+    this.redPrinter = redPrinter;
+    this.bluePrinter = bluePrinter;
+    this.greenPrinter = greenPrinter;
   }
 //using these three dependencies above^, we're implementing the print method to print out: "red, blue, green"
   @Override
