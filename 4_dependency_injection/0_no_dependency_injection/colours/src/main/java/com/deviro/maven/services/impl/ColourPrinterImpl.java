@@ -4,7 +4,10 @@ import com.deviro.maven.services.BluePrinter;
 import com.deviro.maven.services.ColourPrinter;
 import com.deviro.maven.services.GreenPrinter;
 import com.deviro.maven.services.RedPrinter;
+import org.springframework.stereotype.Component;
 
+@Component //Tells Spring that ColourPrinterImpl is a Bean and should be put inside the Application Context
+//Also says that any dependencies required in my constructor should be injected aswell (redPrinter, bluePrinter, greenPrinter)
 public class ColourPrinterImpl implements ColourPrinter {
     //these are three dependencies for this ColourPrinterImpl:
     //each of these classes has a single method 'String print()'
