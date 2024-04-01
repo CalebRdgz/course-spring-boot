@@ -11,10 +11,10 @@ import lombok.NoArgsConstructor;
 @Builder
 public class Book {
 
-    private String isbn;
+    private String isbn; //isbn of the book is the primary key of the book
 
-    private String title;
+    private String title; //title of the book
 
-    private Long authorId;
+    private Long authorId; //the author id
 
 }
