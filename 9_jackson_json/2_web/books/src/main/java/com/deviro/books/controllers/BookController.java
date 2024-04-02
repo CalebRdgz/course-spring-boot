@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @Log
 public class BookController {
+    //exposes GET endpoint on /books, returning a book object:
   @GetMapping(path = "/books")
   public Book retrieveBook() {
     return Book.builder()
@@ -20,6 +21,7 @@ public class BookController {
         .build();
   }
 
+  //exposes POST endpoint on /books, expects a book object that returns the book as JSON:
   @PostMapping(path = "/books")
   public Book createBook(@RequestBody final Book book) {
     log.info("Got book: " + book.toString());

@@ -1,5 +1,7 @@
 package com.deviro.books.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -9,6 +11,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class Book {
 
   private String isbn;
@@ -17,5 +20,6 @@ public class Book {
 
   private String author;
 
+  @JsonProperty("year") //any time we read a JSON object to java, "yearPublished" will become "year"
   private String yearPublished;
 }

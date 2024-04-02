@@ -10,8 +10,8 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-@Entity
-@Table(name = "books")
+@Entity //Labels this object as an entity that can be used with Spring Data JPA
+@Table(name = "books") //Map this object to the "Books" table
 public class Book {
     //we will provide the isbn every time we create a book
     @Id //identify the unique identifier in the database
